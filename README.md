@@ -1,6 +1,7 @@
 # Spring MVC 프로젝트 2024
 
 ## 기본 세팅
+
 - [STS3 다운 및 템플릿 적용](https://github.com/callor/Callor-SpringMVC-Template-2024) 참고
 
 - [WAS(Web Application Server)참고 하여 톰캣 서버 다운](https://github.com/callor/Reference/blob/master/MarkDownDocs/%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%A5%BC_%EC%9C%84%ED%95%9C_%EB%8F%84%EA%B5%AC.md) 적용은 인터넷 검색하면 잘 나와있음
@@ -11,13 +12,19 @@
 - 아마 세팅문제로 현재 run 하면 새창이아니라 프로그램안에서 창이 실행됨. 큰 문제는 없어서 그대로 하기로함.
 
 ## 팀 repository 쓰는 법
+
 ```bash
 git clone https://github.com/hykim6856/Spell-TeamProject.git
 git checkout -b 닉네임
+```
 
+- 수정 후에 밑
 
+```bash
 git add .
 git commit -m ""
 git push origin 닉네임
 
 ```
+
+- 첫 브랜치 생성 후엔 `git checkout 닉네임` 만 써도 됨. -b 빼도된단소리
