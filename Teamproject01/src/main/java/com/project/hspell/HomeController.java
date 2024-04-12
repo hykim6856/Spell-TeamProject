@@ -6,14 +6,16 @@ import java.util.Locale;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.hspell.model.ResultVO;
 import com.project.hspell.service.SpellCheckService;
 
 /**
- * Handles requests for the application home page.
+ * 아마 lomback 이랑 등등 설치안하면 오류날듯
  */
 @Controller
 public class HomeController {
@@ -22,6 +24,9 @@ public class HomeController {
 	public HomeController(SpellCheckService spellCheckService) {
 		this.spellCheckService = spellCheckService;
 	}
+
+	
+	
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -45,15 +50,26 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/spellcheck", method = RequestMethod.POST)
-	public String checkSpell(@RequestParam(required = false) String word, Model model) {
-		 String result = "";
-		    if (word != null && !word.isEmpty()) {
-		        result = spellCheckService.checkSpelling(word);
-		    }
-	    model.addAttribute("word", word); // 입력한 단어를 모델에 추가
-	    model.addAttribute("result", result); // 결과를 모델에 추가
-	    return "spellCheck";
-	}
+    public String checkSpell(@RequestParam(required = false) String word, Model model) {
+        if (word != null && !word.isEmpty()) {
+            ResultVO resultVO = spellCheckService.checkSpell(word);
+            model.addAttribute("word", word); // 입력한 단어를 모델에 추가
+            model.addAttribute("RESULT", resultVO); // 결과를 모델에 추가
+        }
+        return "spellCheck";
+    }
+	
+	
+//	@RequestMapping(value = "/spellcheck", method = RequestMethod.POST)
+//	public String checkSpell(@RequestParam(required = false) String word, Model model) {
+//		 String result = "";
+//		    if (word != null && !word.isEmpty()) {
+//		        result = spellCheckService.checkSpelling(word);
+//		    }
+//	    model.addAttribute("word", word); // 입력한 단어를 모델에 추가
+//	    model.addAttribute("result", result); // 결과를 모델에 추가
+//	    return "spellCheck";
+//	}
 	
 	
 	

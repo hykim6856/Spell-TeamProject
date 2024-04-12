@@ -8,7 +8,6 @@
 <meta charset="UTF-8" />
 <title>맞춤법 검사</title>
 
-<script src="${rootPath}/static/js/spellCheck.js"></script>
 </head>
 <body>
 
@@ -23,8 +22,7 @@
 
 	<p>입력값: ${word}</p>
 	<p>검사 결과: ${result}</p>
-	<p>검사 결과: ${parsedSpellCheckerResult}</p>
-	<div id="spellCheckResult"></div>
+	<p>검사 결과: ${RESULT.notag_html}</p>
 
 
 	<a href="${rootPath}/">홈으로 돌아가기</a>
