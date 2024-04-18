@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8" />
 <title>네이버 맞춤법 검사 결과</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="${rootPath}/static/js/sp.js?2024-04-02-005"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     // 입력 필드에 입력 중일 때 밑줄 추가
