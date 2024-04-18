@@ -41,7 +41,7 @@
     // 버튼을 클릭할 때 네이버 맞춤법 검사 결과를 표시하는 함수
     $("#showResultBtn").click(function() {
       var inputText = $('#inputText').val();
-      var passportKey = "5496c35ef39c4f74e482a25efd18eaf5e92ac3fc";
+      var passportKey = "0302d2240c6eafd7b555f42ceaab43083ad92697";
       $.getJSON("https://m.search.naver.com/p/csearch/ocontent/util/SpellerProxy?passportKey=" 
     		  + passportKey + "&q=" 
     		  + inputText + "&where=nexearch&color_blindness=0", 

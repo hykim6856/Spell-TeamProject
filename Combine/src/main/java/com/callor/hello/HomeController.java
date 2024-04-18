@@ -34,6 +34,6 @@ public class HomeController {
     public String extractNouns(String text, Model model) {
     	log.debug("한글: {}", text);
     	model.addAttribute("nouns", spService.extractNouns(text));
-        return "result";
+        return "form";
     }
 }
