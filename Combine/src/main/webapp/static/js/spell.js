@@ -22,10 +22,16 @@ $(document).ready(function () {
 
   // 'text' 파라미터의 값 가져오기
   const textValue = urlParams.get("text");
+  const currentCharCount = textValue.length;
+
+  if (currentCharDisplay < 1) {
+    currentCharDisplay.textContent = currentCharCount;
+  }
 
   // 가져온 값 출력하기
   console.log(textValue);
 
+  document.getElementById("inputText").value = textValue;
   // 폼 제출 이벤트 핸들러
   // $("form").submit(function (event) {
   const inputText = textValue; // textValue 사용
