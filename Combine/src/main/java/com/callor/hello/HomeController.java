@@ -18,22 +18,18 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class HomeController {
 
-    private final SpService spService;
+	private final SpService spService;
 
-    @Autowired
-    public HomeController(SpService spService) {
-        this.spService = spService;
-    }
+	@Autowired
+	public HomeController(SpService spService) {
+		this.spService = spService;
+	}
 
-    @RequestMapping(value="/", method=RequestMethod.GET)
-    public String showForm() {
-        return "form"; // form.html로 이동
-    }
-
-    @RequestMapping(value="/", method=RequestMethod.POST)
-    public String extractNouns(String text, Model model) {
-    	log.debug("한글: {}", text);
-    	model.addAttribute("nouns", spService.extractNouns(text));
-        return "form";
-    }
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String extractNouns(@RequestParam(required = false,defaultValue = "") String text, Model model) {
+		log.debug("한글: {}", text);
+		model.addAttribute("nouns", spService.extractNouns(text));
+		model.addAttribute("texts", text);
+		return "form";
+	}
 }

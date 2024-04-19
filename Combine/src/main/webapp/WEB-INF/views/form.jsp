@@ -9,34 +9,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>맞춤법 검사</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="${rootPath}/static/js/spell.js?2024-04-02-005"></script>
+<script src="${rootPath}/static/js/spell.js?2024-04-02-011"></script>
+
 <style>
 em.green_text {
-	/* color: blue; */
-	border-bottom:1px solid blue;
+	/* color: 띄어쓰기; */
+	border-bottom:1px solid yellowgreen;
+}
+em.violet_text {
+	/* 맞춤법 오류 의심 */
+	border-bottom:1px solid violet;
 }
 
 em.red_text {
-	/* color: red; */
+	/* color: 오타; */
 	border-bottom:1px solid red;
+}
+
+em.blue_text {
+	border-bottom:1px solid blue;
 }
 </style>
 </head>
 <body>
 	<h1>Texty</h1>
-	<textarea id="inputText" style="width: 500px; height: 500px;"></textarea>
+	<form method="get">
+	<textarea id="inputText" name="text"  rows="5" style="width: 500px; height: 500px;">${tests}</textarea>
 	<p>
 		현재 입력한 글자 수: <span id="currentChar">0</span> / 최대 글자 수: <span
 			id="maxChar">300</span>
 	</p>
-	<button id="showResultBtn">결과 보기</button>
-	<div id="displayText"></div>
-	<h2>한국어 텍스트에서 명사 추출하기</h2>
-	<form method="post">
-		<textarea name="text" rows="5" cols="50"></textarea>
-		<br> <input type="submit" value="추출">
+	<button id="showResultBtn" type="submit" >결과 보기</button>
 	</form>
-	<h1>Extracted Nouns</h1>
+	<p>결과출력</p>
+	<div id="displayText"></div>
+
 	<ul>
 		<!-- 명사 리스트를 순회하며 출력 -->
 		<c:forEach var="noun" items="${nouns}">
