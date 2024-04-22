@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  $("#inputText").focus();
   const currentCharDisplay = document.getElementById("currentChar");
   const maxCharDisplay = document.getElementById("maxChar");
   const maxChar = 300; // 최대 글자 수
@@ -16,6 +17,26 @@ $(document).ready(function () {
   });
   maxCharDisplay.textContent = maxChar;
 
+  // 폼 제출 함수
+  function submitForm() {
+    document.getElementById("myForm").submit();
+  }
+
+  // 텍스트 입력 이벤트 핸들러
+  document
+    .getElementById("inputText")
+    .addEventListener("input", function (event) {
+      var text = event.target.value;
+      var charCount = text.length;
+      document.getElementById("currentChar").innerText = charCount;
+
+      // 스페이스바, 점 또는 쉼표를 눌렀을 때 폼 제출
+      var lastChar = text.charAt(charCount - 1);
+      if (lastChar === " " || lastChar === "." || lastChar === ",") {
+        submitForm();
+      }
+    });
+
   // URL에서 쿼리 파라미터 가져오기
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -32,10 +53,9 @@ $(document).ready(function () {
   console.log(textValue);
 
   document.getElementById("inputText").value = textValue;
-  // 폼 제출 이벤트 핸들러
-  // $("form").submit(function (event) {
+
   const inputText = textValue; // textValue 사용
-  var passportKey = "164b84ab05461401e2a0a1beffce4fe8562800b0";
+  var passportKey = "1e96e426774e2dd25b589091be6c803d9d7eb8fb";
   $.getJSON(
     "https://m.search.naver.com/p/csearch/ocontent/util/SpellerProxy",
     {
@@ -50,5 +70,4 @@ $(document).ready(function () {
       $("#displayText").html(htmlText);
     }
   );
-  // });
 });

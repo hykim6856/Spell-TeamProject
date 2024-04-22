@@ -10,7 +10,7 @@
 <title>맞춤법 검사</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="${rootPath}/static/js/spell.js?2024-04-02-012"></script>
+<script src="${rootPath}/static/js/spell.js?2024-04-02-020"></script>
 <link rel="stylesheet"
 	href="${rootPath}/static/css/main.css?2024-04-02-09">
 <style>
@@ -33,6 +33,7 @@ em.blue_text {
 	border-bottom: 1px solid blue;
 }
 </style>
+
 </head>
 <body>
 	<header>
@@ -43,7 +44,7 @@ em.blue_text {
 		<aside class="left">
 			<div class="section">
 				<p>글씨 입력하기</p>
-				<form method="get">
+				<form id="myForm" method="get">
 					<textarea  id="inputText" name="text" rows="5"  ></textarea>
 					<p>
 						현재 입력한 글자 수: <span id="currentChar">0</span> / 최대 글자 수: <span
@@ -70,8 +71,6 @@ em.blue_text {
 			</div>
 		</aside>
 	</section>
-
-
 
 </body>
 </html>
