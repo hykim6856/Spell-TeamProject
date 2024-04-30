@@ -10,14 +10,9 @@
 <title>맞춤법 검사</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="${rootPath}/static/js/spell.js?2024-04-02-0200"></script>
-<script>
-//js  파일에서 사용할 rootPath 변수 선언
-const rootPath = "${rootPath}"
-</script>
-<script src="${rootPath}/static/js/pop.js?d224-0d4d2f"></script>
-<link rel="stylesheet" href="${rootPath}/static/css/main.css?204-04-0-09">
-<link rel="stylesheet" href="${rootPath}/static/css/modal.css?202d4-04-2-12">
+<script src="${rootPath}/static/js/spell.js?2024-04-02-01"></script>
+<link rel="stylesheet"
+	href="${rootPath}/static/css/main.css?2024-04-02-09">
 <style>
 em.green_text {
 	/* color: 띄어쓰기; */
@@ -50,7 +45,7 @@ em.blue_text {
 			<div class="section">
 				<p>글씨 입력하기</p>
 				<form id="myForm" method="get">
-					<textarea id="inputText" name="text" rows="5"></textarea>
+					<textarea  id="inputText" name="text" rows="5"  ></textarea>
 					<p>
 						현재 입력한 글자 수: <span id="currentChar">0</span> / 최대 글자 수: <span
 							id="maxChar">300</span>
@@ -66,21 +61,13 @@ em.blue_text {
 		</aside>
 		<aside class="right">
 			<div class="section">
-				<h3>추천단어</h3>
-				<ul id="nounList" class="nounList">
+				<p>추천단어</p>
+				<ul>
 					<!-- 명사 리스트를 순회하며 출력 -->
 					<c:forEach var="noun" items="${nouns}">
-						<li class="hover" >${noun}</li>
+						<li>${noun}</li>
 					</c:forEach>
 				</ul>
-			</div>
-
-			<!-- 모달 창 -->
-			<div id="myModal" class="modal">
-				<div class="modal-content">
-					<span class="close">&times;</span>
-					<ul id="modalWordsList"></ul>
-				</div>
 			</div>
 		</aside>
 	</section>

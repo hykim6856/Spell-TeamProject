@@ -34,12 +34,12 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-
+		
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${org.springframework-version}</version>
-		</dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>${org.springframework-version}</version>
+</dependency>
 
 		<!-- AspectJ -->
 		<dependency>
@@ -54,31 +54,15 @@
 			<artifactId>logback-classic</artifactId>
 			<version>1.5.3</version>
 		</dependency>
-
-
+		
+		
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.32</version>
 			<scope>provided</scope>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-core -->
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-core</artifactId>
-			<version>3.0.8</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-extras -->
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-extras</artifactId>
-			<version>3.0.8</version>
-		</dependency>
-
-
-
+		
 
 		<!-- Servlet -->
 		<dependency>
@@ -107,27 +91,13 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.openkoreantext/open-korean-text -->
-		<!-- https://mvnrepository.com/artifact/org.openkoreantext/open-korean-text -->
-		<!-- https://mvnrepository.com/artifact/org.openkoreantext/open-korean-text -->
-		<dependency>
-			<groupId>org.openkoreantext</groupId>
-			<artifactId>open-korean-text</artifactId>
-			<version>2.3.1</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
-		<dependency>
-			<groupId>org.jsoup</groupId>
-			<artifactId>jsoup</artifactId>
-			<version>1.17.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.12.5</version> <!-- 사용하는 Jackson 버전에 따라 버전을 수정하세요 -->
-		</dependency>
-
+	<!-- https://mvnrepository.com/artifact/org.openkoreantext/open-korean-text -->
+<!-- https://mvnrepository.com/artifact/org.openkoreantext/open-korean-text -->
+<dependency>
+    <groupId>org.openkoreantext</groupId>
+    <artifactId>open-korean-text</artifactId>
+    <version>2.3.1</version>
+</dependency>
 
 		<dependency>
 			<groupId>kr.bydelta</groupId>
