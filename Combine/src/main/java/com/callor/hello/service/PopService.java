@@ -68,7 +68,7 @@ public class PopService {
 	            Document doc = Jsoup.connect(url).get();
 
 	            // 각 섹션을 식별하고 해당 섹션의 예시들을 가져오기
-	            String[] sections = {"합성어", "유의어", "파생어"};
+	            String[] sections = {"합성어", "유의어", "파생어","반의어"};
 	            for (String section : sections) {
 	                Element sectionElement = doc.selectFirst("span#" + section);
 
@@ -89,7 +89,7 @@ public class PopService {
 
 	            for (Element li : liTags) {
 	                String text = li.text();
-	                if (text.contains("유의어") || text.contains("합성어") || text.contains("파생어")) {
+	                if (text.contains("유의어") || text.contains("합성어") || text.contains("파생어") || text.contains("반의어")) {
 	                    // 콜론(:)을 기준으로 분할한 후, 1번 인덱스의 값을 선택합니다.
 	                    String[] parts = text.split(":");
 	                    if (parts.length > 1) {

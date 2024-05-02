@@ -39,3 +39,9 @@ git push origin 닉네임
 ### 맞춤법 검사기가 작동을 안할때
 - passportkey 가 제대로 들어가있는지 확인
 - 위 수정 후 js 업데이트 제대로 해보기
+
+#### 자잘한 공유
+- 엔터키 : 
+```js        
+event.inputType === "insertLineBreak"
+```

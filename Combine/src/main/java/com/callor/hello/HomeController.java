@@ -3,7 +3,6 @@ package com.callor.hello;
 import java.io.IOException;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,8 +28,12 @@ public class HomeController {
 	private final SpService spService;
 	private final PopService popService;
 
-	@Autowired
+
+
+	
+
 	public HomeController(SpService spService, PopService popService) {
+		super();
 		this.spService = spService;
 		this.popService = popService;
 	}
@@ -59,4 +62,6 @@ public class HomeController {
 
 		return jsonWords;
 	}
+	
+
 }

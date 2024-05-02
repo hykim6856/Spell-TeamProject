@@ -5,6 +5,12 @@ $(document).ready(function () {
   const maxChar = 300; // 최대 글자 수
 
   // textarea 입력 시 글자 수 표시
+  function updateCharCount() {
+    const text = $("#inputText").val();
+    const currentCharCount = text.length;
+    currentCharDisplay.textContent = currentCharCount; // 현재 글자 수 표시
+  }
+
   $("#inputText").on("input", function () {
     const text = $(this).val();
     const currentCharCount = text.length;
@@ -15,7 +21,6 @@ $(document).ready(function () {
       currentCharDisplay.textContent = currentCharCount; // 현재 글자 수 표시
     }
   });
-  maxCharDisplay.textContent = maxChar;
 
   // 폼 제출 함수
   function submitForm() {
@@ -32,22 +37,29 @@ $(document).ready(function () {
 
       // 스페이스바, 점 또는 쉼표를 눌렀을 때 폼 제출
       var lastChar = text.charAt(charCount - 1);
-      if (lastChar === " " || lastChar === "." || lastChar === ",") {
+      if (
+        lastChar === " " ||
+        lastChar === "." ||
+        lastChar === "," ||
+        event.inputType === "insertLineBreak"
+      ) {
         submitForm();
       }
     });
+
+  // 페이지 일부가 다시 로드될 때도 글자수 세는 함수 실행
+  $(window).on("load", updateCharCount);
 
   // URL에서 쿼리 파라미터 가져오기
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
 
   // 'text' 파라미터의 값 가져오기
-  const textValue = urlParams.get("text");
+  const textValue = urlParams.get("text") || "";
   const currentCharCount = textValue.length;
 
-  if (currentCharDisplay < 1) {
-    currentCharDisplay.textContent = currentCharCount;
-  }
+  // 초기 글자 수 표시
+  currentCharDisplay.textContent = currentCharCount;
 
   // 가져온 값 출력하기
   console.log(textValue);
@@ -55,7 +67,9 @@ $(document).ready(function () {
   document.getElementById("inputText").value = textValue;
 
   const inputText = textValue; // textValue 사용
-  var passportKey = "19580ac709556cf2ce4842c705f7cac80d59953d";
+
+  //네이버에서 실시간으로 맞춤법 검사, 결과 출력
+  var passportKey = "c563836e3c95b051431dc050c426d249c81cf998";
   $.getJSON(
     "https://m.search.naver.com/p/csearch/ocontent/util/SpellerProxy",
     {
@@ -70,4 +84,5 @@ $(document).ready(function () {
       $("#displayText").html(htmlText);
     }
   );
+  $("#inputText").focus();
 });
