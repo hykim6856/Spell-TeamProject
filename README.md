@@ -13,7 +13,7 @@
 
 ### STS3 환경설정 세팅 쉽게하는 법
 
-- 파일에 환경세팅 파일 참고
+- 파일에 [환경세팅 파일](https://github.com/hykim6856/Spell-TeamProject/tree/master/%ED%99%98%EA%B2%BD%EC%84%B8%ED%8C%85) 참고
 
 ## 팀 repository 쓰는 법
 
@@ -33,15 +33,22 @@ git push origin 닉네임
 
 - 첫 브랜치 생성 후엔 `git checkout 닉네임` 만 써도 됨. -b 빼도된단소리
 
-
 ## 만들어 놓은 것이 실행이 안될경우
 
+### VO가 분명있는데 없다고 할경우
+
+- 현재 lombok 이 설치되어있는지 확인하기(pom.xml에 적은것 말고 따로 설치도 필요함.)
+- clean 해보기
+
 ### 맞춤법 검사기가 작동을 안할때
+
 - passportkey 가 제대로 들어가있는지 확인
 - 위 수정 후 js 업데이트 제대로 해보기
 
 #### 자잘한 공유
-- 엔터키 : 
-```js        
-event.inputType === "insertLineBreak"
+
+- 엔터키 :
+
+```js
+event.inputType === "insertLineBreak";
 ```
