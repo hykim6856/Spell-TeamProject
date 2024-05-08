@@ -12,7 +12,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="${rootPath}/static/js/spell.js?2024-04-02-0sd2"></script>
 <script>
-const rootPath = "${rootPath}"
+const rootPath = "${rootPath}";
+	/* const PASSKEY = "${PASSPORT}"; */
 </script>
 <script src="${rootPath}/static/js/pop.js?d224-0d4d2f"></script>
 <link rel="stylesheet" href="${rootPath}/static/css/main.css?204-04-0-09">

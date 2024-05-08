@@ -3,6 +3,7 @@ $(document).ready(function () {
   const currentCharDisplay = document.getElementById("currentChar");
   const maxCharDisplay = document.getElementById("maxChar");
   const maxChar = 300; // 최대 글자 수
+  const PASSKEY = "${PASSPORT}";
 
   // textarea 입력 시 글자 수 표시
   function updateCharCount() {
@@ -37,12 +38,7 @@ $(document).ready(function () {
 
       // 스페이스바, 점 또는 쉼표를 눌렀을 때 폼 제출
       var lastChar = text.charAt(charCount - 1);
-      if (
-        lastChar === " " ||
-        lastChar === "." ||
-        lastChar === "," ||
-        event.inputType === "insertLineBreak"
-      ) {
+      if (lastChar === " " || lastChar === "." || lastChar === ",") {
         submitForm();
       }
     });
@@ -69,7 +65,8 @@ $(document).ready(function () {
   const inputText = textValue; // textValue 사용
 
   //네이버에서 실시간으로 맞춤법 검사, 결과 출력
-  var passportKey = "c563836e3c95b051431dc050c426d249c81cf998";
+  // var passportKey = "069f818f3885981d5857c57c6f6b0fd96578391b";
+  var passportKey = PASSKEY;
   $.getJSON(
     "https://m.search.naver.com/p/csearch/ocontent/util/SpellerProxy",
     {
