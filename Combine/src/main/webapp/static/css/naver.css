@@ -1,0 +1,55 @@
+.blind {
+  overflow: hidden !important;
+  position: absolute !important;
+  clip: rect(0 0 0 0) !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+}
+
+.check_area dl dd .circle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -3px;
+  width: 6px;
+  height: 6px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ff5757;
+}
+.check_area dl dd .circle.violet {
+  background-color: #b22af8;
+}
+.check_area dl dd .circle.green {
+  background-color: #02c73c;
+}
+.check_area dl dd .circle.blue {
+  background-color: #2facea;
+}
+
+dl {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  width: 100%;
+  height: min-content;
+  margin: 5px;
+}
+.check_area dl dd {
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 11px;
+  margin: 5px;
+  float: left;
+  line-height: 2rem;
+  color: #808080;
+  white-space: nowrap;
+}
+
+.check_area {
+  height: 50px;
+  border: solid 1px white;
+}

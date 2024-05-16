@@ -3,7 +3,7 @@ $(document).ready(function () {
   const currentCharDisplay = document.getElementById("currentChar");
   const maxCharDisplay = document.getElementById("maxChar");
   const maxChar = 300; // 최대 글자 수
-  const PASSKEY = "${PASSPORT}";
+  // const PASSKEY = "${PASSPORT}";
 
   // textarea 입력 시 글자 수 표시
   function updateCharCount() {
