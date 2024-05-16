@@ -12,7 +12,7 @@ export default function Home() {
   const fetchSpellCheck = async () => {
     try {
       const response = await fetch(
-        `https://m.search.naver.com/p/csearch/ocontent/util/SpellerProxy?passportKey=${process.env.NAVER_PASSKEY}&q=${inputText}&color_blindness=0`
+        `https://m.search.naver.com/p/csearch/ocontent/util/SpellerProxy?passportKey=00eb157a0b1a05b6b7c633369935a9adcefa53e9&q=${inputText}&color_blindness=0`
       );
       const data = await response.json();
       const htmlText = data.message.result.html;
