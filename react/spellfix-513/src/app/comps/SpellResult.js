@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 const SpellResult = ({ text }) => {
   const [sres, setSres] = useState("");
   const [timer, setTimer] = useState(null);
-  const [currentText, setCurrentText] = useState("");
+  const [currentText, setCurrentText] = useState(text);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (textToCheck) => {
       try {
         const response = await fetch(
           "https://m.search.naver.com/p/csearch/ocontent/util/SpellerProxy",
@@ -16,8 +16,8 @@ const SpellResult = ({ text }) => {
               "Content-Type": "application/x-www-form-urlencoded",
             },
             body: new URLSearchParams({
-              passportKey: "00eb157a0b1a05b6b7c633369935a9adcefa53e9", // 임시 passportKey
-              q: currentText, // 현재 textarea에 있는 값으로 요청을 보냄
+              passportKey: "4181eddd21f352d39304deefefbbb7353443323b", // 임시 passportKey
+              q: textToCheck, // 현재 textarea에 있는 값으로 요청을 보냄
               color_blindness: 0,
             }),
           }
@@ -40,10 +40,15 @@ const SpellResult = ({ text }) => {
       }
     };
 
-    const handleInput = () => {
+    const handleInput = (event) => {
+      const newText = event.target.value;
+      setCurrentText(newText); // 사용자가 입력하는 동안에는 현재 textarea에 있는 값을 계속 갱신
       clearTimeout(timer);
-      setCurrentText(text); // 사용자가 입력하는 동안에는 현재 textarea에 있는 값을 계속 갱신
-      setTimer(setTimeout(fetchData, 2000)); // 2초 후에 fetchData 함수 호출
+      setTimer(
+        setTimeout(() => {
+          fetchData(newText);
+        }, 800)
+      ); // 800ms 후에 fetchData 함수 호출
     };
 
     const inputElement = document.getElementById("inputText");
@@ -52,7 +57,7 @@ const SpellResult = ({ text }) => {
     return () => {
       inputElement.removeEventListener("input", handleInput);
     };
-  }, [text, timer, currentText]);
+  }, [timer]);
 
   return (
     <div
@@ -63,3 +68,13 @@ const SpellResult = ({ text }) => {
 };
 
 export default SpellResult;
+
+// const url = "https://search.naver.com/search.naver?where=nexearch&sm=top_sly.hst&fbm=0&acr=1&ie=utf8&query=%EB%84%A4%EC%9D%B4%EB%B2%84+%EB%A7%9E%EC%B6%A4%EB%B2%95+%EA%B2%80%EC%82%AC%EA%B8%B0";
+
+// // URL에서 쿼리 파라미터 추출
+// const queryParams = new URLSearchParams(url.split('?')[1]);
+
+// // passport 키 추출
+// const passportKey = queryParams.get('passport');
+
+// console.log(passportKey);
