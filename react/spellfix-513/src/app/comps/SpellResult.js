@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const SpellResult = ({ text }) => {
   const [sres, setSres] = useState("");
-  const [timer, setTimer] = useState(null);
-  const [currentText, setCurrentText] = useState(text);
+  const timerRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async (textToCheck) => {
@@ -16,7 +15,7 @@ const SpellResult = ({ text }) => {
               "Content-Type": "application/x-www-form-urlencoded",
             },
             body: new URLSearchParams({
-              passportKey: "4181eddd21f352d39304deefefbbb7353443323b", // 임시 passportKey
+              passportKey: "6010591716c5633888b73834fe89367c4499cfaa", // 임시 passportKey
               q: textToCheck, // 현재 textarea에 있는 값으로 요청을 보냄
               color_blindness: 0,
             }),
@@ -42,13 +41,10 @@ const SpellResult = ({ text }) => {
 
     const handleInput = (event) => {
       const newText = event.target.value;
-      setCurrentText(newText); // 사용자가 입력하는 동안에는 현재 textarea에 있는 값을 계속 갱신
-      clearTimeout(timer);
-      setTimer(
-        setTimeout(() => {
-          fetchData(newText);
-        }, 800)
-      ); // 800ms 후에 fetchData 함수 호출
+      clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(() => {
+        fetchData(newText);
+      }, 800); // 800ms 후에 fetchData 함수 호출
     };
 
     const inputElement = document.getElementById("inputText");
@@ -56,8 +52,9 @@ const SpellResult = ({ text }) => {
 
     return () => {
       inputElement.removeEventListener("input", handleInput);
+      clearTimeout(timerRef.current); // 컴포넌트 언마운트 시 타이머 클리어
     };
-  }, [timer]);
+  }, []);
 
   return (
     <div
@@ -68,13 +65,3 @@ const SpellResult = ({ text }) => {
 };
 
 export default SpellResult;
-
-// const url = "https://search.naver.com/search.naver?where=nexearch&sm=top_sly.hst&fbm=0&acr=1&ie=utf8&query=%EB%84%A4%EC%9D%B4%EB%B2%84+%EB%A7%9E%EC%B6%A4%EB%B2%95+%EA%B2%80%EC%82%AC%EA%B8%B0";
-
-// // URL에서 쿼리 파라미터 추출
-// const queryParams = new URLSearchParams(url.split('?')[1]);
-
-// // passport 키 추출
-// const passportKey = queryParams.get('passport');
-
-// console.log(passportKey);

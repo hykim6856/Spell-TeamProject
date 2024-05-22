@@ -29,6 +29,15 @@ section.main {
   flex: 1; /* 섹션을 화면의 세로를 모두 채우도록 설정 */
 }
 
+div.section.ggi {
+  /* background-color: #02c73c; */
+  min-height: 200px;
+  display: flex;
+  div {
+    margin: 3px;
+  }
+}
+
 aside {
   border: 0.5px solid lightslategray;
   padding: 30px;
@@ -46,7 +55,7 @@ div.section {
   border: 1px solid black;
   padding: 30px;
   margin: 5px;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
 }
 
@@ -94,6 +103,8 @@ button {
 }
 
 #displayText {
+  min-height: 60%;
+  flex: 2;
   &:hover {
     cursor: pointer;
   }
@@ -151,6 +162,7 @@ dl {
 }
 
 .check_area {
+  flex: 1;
   height: 50px;
   border: solid 1px white;
 }
@@ -217,4 +229,17 @@ li {
 }
 li:hover {
   background-color: #e3e3e6;
+}
+
+em.red_text {
+  color: #ff5757;
+}
+em.violet_text {
+  color: #b22af8;
+}
+em.green_text {
+  color: #02c73c;
+}
+em.blue_text {
+  color: #2facea;
 }
