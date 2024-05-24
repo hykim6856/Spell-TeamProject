@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { extractPassportKey } from "@/api/key";
 
 const SpellResult = ({ text }) => {
   const [sres, setSres] = useState("");
@@ -7,6 +8,7 @@ const SpellResult = ({ text }) => {
   useEffect(() => {
     const fetchData = async (textToCheck) => {
       try {
+        const passportKey = await extractPassportKey(); // API 키 추출
         const response = await fetch(
           "https://m.search.naver.com/p/csearch/ocontent/util/SpellerProxy",
           {
@@ -15,8 +17,8 @@ const SpellResult = ({ text }) => {
               "Content-Type": "application/x-www-form-urlencoded",
             },
             body: new URLSearchParams({
-              passportKey: "6010591716c5633888b73834fe89367c4499cfaa", // 임시 passportKey
-              q: textToCheck, // 현재 textarea에 있는 값으로 요청을 보냄
+              passportKey: passportKey,
+              q: textToCheck,
               color_blindness: 0,
             }),
           }
@@ -29,11 +31,11 @@ const SpellResult = ({ text }) => {
         }
 
         const data = await response.json();
-        const result = data.message.result.html; // 결과에서 HTML 텍스트 추출
+        const result = data.message.result.html;
 
         setSres(result);
 
-        console.log(result); // 콘솔에 결과 출력
+        console.log(result);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -44,7 +46,7 @@ const SpellResult = ({ text }) => {
       clearTimeout(timerRef.current);
       timerRef.current = setTimeout(() => {
         fetchData(newText);
-      }, 800); // 800ms 후에 fetchData 함수 호출
+      }, 800);
     };
 
     const inputElement = document.getElementById("inputText");
@@ -52,7 +54,7 @@ const SpellResult = ({ text }) => {
 
     return () => {
       inputElement.removeEventListener("input", handleInput);
-      clearTimeout(timerRef.current); // 컴포넌트 언마운트 시 타이머 클리어
+      clearTimeout(timerRef.current);
     };
   }, []);
 
