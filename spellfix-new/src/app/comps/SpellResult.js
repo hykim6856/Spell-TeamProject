@@ -4,11 +4,18 @@ import { extractPassportKey } from "@/api/key";
 const SpellResult = ({ text }) => {
   const [sres, setSres] = useState("");
   const timerRef = useRef(null);
+  const passportKeyRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async (textToCheck) => {
       try {
-        const passportKey = await extractPassportKey(); // API 키 추출
+        if (!passportKeyRef.current) {
+          passportKeyRef.current = await extractPassportKey(); // API 키 추출
+          console.log(
+            "Extracted Passport Key:",
+            passportKeyRef.current
+          ); // API 키를 콘솔에 출력
+        }
         const response = await fetch(
           "https://m.search.naver.com/p/csearch/ocontent/util/SpellerProxy",
           {
@@ -17,7 +24,7 @@ const SpellResult = ({ text }) => {
               "Content-Type": "application/x-www-form-urlencoded",
             },
             body: new URLSearchParams({
-              passportKey: passportKey,
+              passportKey: passportKeyRef.current,
               q: textToCheck,
               color_blindness: 0,
             }),
@@ -35,7 +42,7 @@ const SpellResult = ({ text }) => {
 
         setSres(result);
 
-        console.log(result);
+        console.log("Spell Check Result:", result); // 결과를 콘솔에 출력
       } catch (error) {
         console.error("Error fetching data:", error);
       }
