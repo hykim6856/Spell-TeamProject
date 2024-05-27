@@ -1,7 +1,7 @@
 # Spelling Project
 
 - 팀 프로젝트 맞춤법 검사기 `Spelling`
-- 참여자 : [neck091](https://github.com/neck091), [hykim6856](https://github.com/hykim6856)
+- 참여자 : [neck091](https://github.com/neck091/Biz-505-react-2024/tree/master/spellfix-new), [hykim6856](https://github.com/hykim6856)
 
 ### 구현기능
 
