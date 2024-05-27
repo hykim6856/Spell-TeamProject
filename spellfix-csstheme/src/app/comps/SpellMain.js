@@ -37,7 +37,7 @@ const SpellMain = () => {
   };
 
   const onClickDuplicate = () => {
-    //결과창을 누르면 자동복사가 되는 로직 넣기
+    alert("문장이 복사되었습니다.");
   };
 
   return (
@@ -52,6 +52,7 @@ const SpellMain = () => {
             <h3>맞춤법 검사 결과</h3>
             <SpellResult
               text={text}
+              setText={setText}
               onClickDuplicate={onClickDuplicate}
             />
             <div className="check_area">
