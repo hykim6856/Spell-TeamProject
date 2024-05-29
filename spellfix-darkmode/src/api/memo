@@ -1,0 +1,8 @@
+const handleSynonymClick = (synonym) => {
+    setText((prevText) => {
+      let index = prevText.indexOf(word);
+  
+      console.log("Replaced text:", replacedText); // 대체된 텍스트 콘솔에 출력
+      return replacedText;
+    });
+  };

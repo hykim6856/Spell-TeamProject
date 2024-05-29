@@ -1,0 +1,232 @@
+/* styles/globals.css */
+
+/* 라이트 모드 */
+:root[color-theme="light"] {
+  --background1: #e7e5e5;
+  --background2: #f4f4f4;
+  --background3: #a7cda2;
+  --boxColor: #4e4e4e;
+  --boxColor2: #4e4e4e;
+  --boxColor3: #858585be;
+}
+
+/* 다크모드 */
+:root[color-theme="dark"] {
+  --background1: #363535;
+  --background2: #474646;
+  --background3: #97b992;
+  --boxColor: #e7e5e5;
+  --boxColor2: #a09e9e;
+  --boxColor3: #7e7b7bad;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background1);
+  color: var(--boxColor);
+}
+
+main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+div.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+section.main {
+  display: flex;
+  flex: 1;
+}
+
+div.section.ggi {
+  min-height: 200px;
+  display: flex;
+  div {
+    margin: 3px;
+  }
+}
+
+aside {
+  border: 0.5px solid inherit;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+aside.left {
+  flex: 2;
+  border-right: 1px solid var(--boxColor);
+}
+
+aside.right {
+  flex: 1;
+}
+
+div.section {
+  flex: 1;
+  border: 1px solid var(--boxColor);
+  padding: 30px;
+  margin: 5px;
+  flex-direction: column;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  padding: 5px;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  padding: 15px;
+  background-color: var(--boxColor);
+  color: var(--background1);
+  h1 {
+    font-size: 30px;
+    color: var(--background1);
+  }
+  button {
+    margin-left: 15px;
+    background-color: var(--background1) !important;
+    color: var(--boxColor) !important;
+    border: solid 1px var(--boxColor3) !important;
+  }
+}
+
+section {
+  border: 1px solid inherit;
+  aside {
+    border: 1px solid inherit;
+  }
+  div {
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    height: 80%;
+    background-color: var(--background1);
+    color: var(--boxColor);
+  }
+
+  textarea {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: var(--background1);
+    color: var(--boxColor);
+  }
+}
+
+button {
+  background-color: var(--boxColor);
+  color: var(--background1);
+  border: solid 1px var(--background1);
+  margin: 12px auto;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+#displayText {
+  min-height: 60%;
+  flex: 2;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.blind {
+  overflow: hidden !important;
+  position: absolute !important;
+  clip: rect(0 0 0 0) !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+}
+
+.check_area dl dd .circle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: var(--background1);
+  color: var(--boxColor);
+}
+
+.check_area dl dd .circle.red {
+  background-color: #ff5757;
+}
+.check_area dl dd .circle.violet {
+  background-color: #b22af8;
+}
+
+.check_area dl dd .circle.green {
+  background-color: #02c73c;
+}
+
+.check_area dl dd .circle.blue {
+  background-color: #2facea;
+}
+
+dl {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  width: 100%;
+  height: min-content;
+  margin: 5px;
+}
+
+.check_area dl dd {
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 11px;
+  margin: 5px;
+  float: left;
+  line-height: 2rem;
+  color: #808080;
+  /* background-color: var(--background1); */
+  color: var(--boxColor);
+  white-space: nowrap;
+}
+
+.check_area {
+  /* flex: 1; */
+  height: 50px;
+  border: solid 1px var(--boxColor);
+  background-color: var(--background1);
+  color: var(--boxColor);
+  border: solid 1px var(--boxColor3);
+}
+
+#inputText,
+#displayText {
+  border: solid 1px var(--boxColor3);
+  padding: 15px;
+}
