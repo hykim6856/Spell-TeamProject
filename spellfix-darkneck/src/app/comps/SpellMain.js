@@ -86,7 +86,7 @@ const SpellMain = () => {
               onClose={handleModalClose}
             />
           )}
-          <Qz></Qz>
+          {/* <Qz></Qz> */}
         </aside>
       </section>
     </div>

@@ -1,23 +1,15 @@
-/* styles/globals.css */
-
 /* 라이트 모드 */
 :root[color-theme="light"] {
-  --background1: #e7e5e5;
-  --background2: #f4f4f4;
-  --background3: #a7cda2;
-  --boxColor: #4e4e4e;
-  --boxColor2: #4e4e4e;
+  --background1: #fff;
+  --boxColor: #444;
   --boxColor3: #858585be;
 }
 
 /* 다크모드 */
 :root[color-theme="dark"] {
-  --background1: #363535;
-  --background2: #474646;
-  --background3: #97b992;
-  --boxColor: #e7e5e5;
-  --boxColor2: #a09e9e;
-  --boxColor3: #7e7b7bad;
+  --background1: #333;
+  --boxColor: #eee;
+  --boxColor3: #858585be;
 }
 
 * {
@@ -44,10 +36,29 @@ body {
   color: var(--boxColor);
 }
 
+/* =================== 기본 설정 ==================== */
+
 main {
   display: flex;
   flex: 1;
   flex-direction: column;
+}
+
+header {
+  display: flex;
+  padding: 15px;
+  background-color: var(--boxColor);
+  color: var(--background1);
+  h1 {
+    font-size: 30px;
+    color: var(--background1);
+  }
+  button {
+    margin-left: 15px;
+    background-color: var(--background1) !important;
+    color: var(--boxColor) !important;
+    border: solid 1px var(--boxColor3) !important;
+  }
 }
 
 div.main {
@@ -59,6 +70,14 @@ div.main {
 section.main {
   display: flex;
   flex: 1;
+}
+
+div.section {
+  flex: 1;
+  border: 1px solid var(--boxColor);
+  padding: 30px;
+  margin: 5px;
+  flex-direction: column;
 }
 
 div.section.ggi {
@@ -85,37 +104,12 @@ aside.right {
   flex: 1;
 }
 
-div.section {
-  flex: 1;
-  border: 1px solid var(--boxColor);
-  padding: 30px;
-  margin: 5px;
-  flex-direction: column;
-}
-
 textarea {
   width: 100%;
   height: 100%;
-  resize: none;
+  /* resize: none; */
   padding: 5px;
   margin: 0;
-}
-
-header {
-  display: flex;
-  padding: 15px;
-  background-color: var(--boxColor);
-  color: var(--background1);
-  h1 {
-    font-size: 30px;
-    color: var(--background1);
-  }
-  button {
-    margin-left: 15px;
-    background-color: var(--background1) !important;
-    color: var(--boxColor) !important;
-    border: solid 1px var(--boxColor3) !important;
-  }
 }
 
 section {
@@ -144,7 +138,7 @@ button {
   color: var(--background1);
   border: solid 1px var(--background1);
   margin: 12px auto;
-  padding: 5px;
+  padding: 6px;
   border-radius: 10px;
 }
 
@@ -153,6 +147,7 @@ button {
   flex: 2;
   &:hover {
     cursor: pointer;
+    border: solid 3px #858585be !important;
   }
 }
 
@@ -163,6 +158,25 @@ button {
   width: 1px !important;
   height: 1px !important;
   margin: -1px !important;
+}
+
+/* ===================맞춤법 검사결과check_area==================== */
+
+.check_area dl dd {
+  position: relative;
+  padding-left: 15px;
+  margin: 5px;
+  float: left;
+  line-height: 2rem;
+  color: var(--boxColor);
+  white-space: nowrap;
+}
+
+.check_area {
+  height: 50px;
+  background-color: var(--background1);
+  color: var(--boxColor);
+  border: solid 1px var(--boxColor3);
 }
 
 .check_area dl dd .circle {
@@ -183,47 +197,25 @@ button {
 .check_area dl dd .circle.violet {
   background-color: #b22af8;
 }
-
 .check_area dl dd .circle.green {
   background-color: #02c73c;
 }
-
 .check_area dl dd .circle.blue {
   background-color: #2facea;
 }
 
 dl {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  width: 100%;
-  height: min-content;
+  /* display: block; */
+  /* margin-block-start: 1em; */
+  /* margin-block-end: 1em; */
+  /* margin-inline-start: 0px; */
+  /* margin-inline-end: 0px; */
+  /* width: 100%; */
+  /* height: min-content; */
   margin: 5px;
 }
 
-.check_area dl dd {
-  position: relative;
-  box-sizing: border-box;
-  padding-left: 11px;
-  margin: 5px;
-  float: left;
-  line-height: 2rem;
-  color: #808080;
-  /* background-color: var(--background1); */
-  color: var(--boxColor);
-  white-space: nowrap;
-}
-
-.check_area {
-  /* flex: 1; */
-  height: 50px;
-  border: solid 1px var(--boxColor);
-  background-color: var(--background1);
-  color: var(--boxColor);
-  border: solid 1px var(--boxColor3);
-}
+/* ======================================= */
 
 #inputText,
 #displayText {
