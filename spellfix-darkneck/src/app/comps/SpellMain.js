@@ -4,6 +4,7 @@ import SpellText from "./SpellText";
 import SpellResult from "./SpellResult";
 import NounList from "./NounList";
 import Modal from "./Modal";
+import Qz from "./Qz";
 
 const SpellMain = () => {
   const [text, setText] = useState("");
@@ -42,14 +43,11 @@ const SpellMain = () => {
 
   return (
     <div className="main">
-      <header>
-        <h1>Spelling Project</h1>
-      </header>
       <section className="main">
         <aside className="left">
           <SpellText text={text} setText={setText} />
           <div className="section ggi">
-            <h3>맞춤법 검사 결과</h3>
+            <h3> 맞춤법 검사 결과</h3>
             <SpellResult
               text={text}
               setText={setText}
@@ -59,7 +57,7 @@ const SpellMain = () => {
               <dl>
                 <dt className="blind">붉은색 텍스트</dt>
                 <dd>
-                  <span className="circle"></span>맞춤법
+                  <span className="circle red"></span>맞춤법
                 </dd>
                 <dt className="blind">보라색 텍스트</dt>
                 <dd>
@@ -88,6 +86,7 @@ const SpellMain = () => {
               onClose={handleModalClose}
             />
           )}
+          <Qz></Qz>
         </aside>
       </section>
     </div>

@@ -11,7 +11,7 @@ const SpellText = ({ text, setText }) => {
 
   return (
     <div className="section">
-      <h3>글씨 입력하기</h3>
+      <h3> 글씨 입력하기</h3>
       <form>
         <textarea
           id="inputText"

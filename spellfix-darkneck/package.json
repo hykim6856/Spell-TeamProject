@@ -15,8 +15,10 @@
     "next.js": "^1.0.3",
     "node-fetch": "^3.3.2",
     "parse5": "^7.1.2",
+    "puppeteer": "^22.10.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "socket.io": "^4.7.5"
   },
   "devDependencies": {
     "eslint": "^8",

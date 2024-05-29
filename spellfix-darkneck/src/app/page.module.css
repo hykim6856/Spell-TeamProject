@@ -1,8 +1,31 @@
+/* styles/globals.css */
+
+/* 라이트 모드 */
+:root[color-theme="light"] {
+  --background1: #e7e5e5;
+  --background2: #f4f4f4;
+  --background3: #a7cda2;
+  --boxColor: #4e4e4e;
+  --boxColor2: #4e4e4e;
+  --boxColor3: #858585;
+}
+
+/* 다크모드 */
+:root[color-theme="dark"] {
+  --background1: #363535;
+  --background2: #474646;
+  --background3: #97b992;
+  --boxColor: #bdb8b8;
+  --boxColor2: #a09e9e;
+  --boxColor3: #7e7b7b;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 a {
   text-decoration: none;
   color: inherit;
@@ -17,27 +40,28 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: var(--background1);
+  color: var(--boxColor);
 }
 
 main {
   display: flex;
-  flex: 1; /* 섹션을 화면의 세로를 모두 채우도록 설정 */
+  flex: 1;
   flex-direction: column;
 }
 
 div.main {
   display: flex;
-  flex: 1; /* 섹션을 화면의 세로를 모두 채우도록 설정 */
+  flex: 1;
   flex-direction: column;
 }
 
 section.main {
   display: flex;
-  flex: 1; /* 섹션을 화면의 세로를 모두 채우도록 설정 */
+  flex: 1;
 }
 
 div.section.ggi {
-  /* background-color: #02c73c; */
   min-height: 200px;
   display: flex;
   div {
@@ -51,36 +75,38 @@ aside {
   display: flex;
   flex-direction: column;
 }
+
 aside.left {
   flex: 2;
 }
+
 aside.right {
   flex: 1;
 }
+
 div.section {
   flex: 1;
   border: 1px solid black;
   padding: 30px;
   margin: 5px;
-  /* display: flex; */
   flex-direction: column;
 }
 
 textarea {
   width: 100%;
   height: 100%;
-  resize: none; /* 사용자가 textarea 크기를 조절하지 못하도록 설정 */
-  /* border: none; 기본 테두리 제거 */
-  padding: 5px; /* 내부 여백 추가 */
-  margin: 0; /* 기본 마진 제거 */
+  resize: none;
+  padding: 5px;
+  margin: 0;
 }
 
 header {
   padding: 15px;
-  background-color: #333;
+  background-color: var(--background1);
+  color: var(--boxColor);
   h1 {
     font-size: 30px;
-    color: white;
+    color: var(--boxColor);
   }
 }
 
@@ -93,20 +119,25 @@ section {
     border-radius: 15px;
     border: 1px solid #ccc;
     height: 80%;
+    background-color: var(--background1);
+    color: var(--boxColor);
   }
 
   textarea {
     border-radius: 10px;
     border: 1px solid #ccc;
+    background-color: var(--background1);
+    color: var(--boxColor);
   }
 }
 
 button {
-  background-color: #333;
-  color: white;
+  background-color: var(--boxColor1);
+  color: var(--background);
   margin: 12px auto;
   padding: 5px;
   border-radius: 10px;
+  border: solid 1px var(--boxColor3);
 }
 
 #displayText {
@@ -133,16 +164,23 @@ button {
   margin-top: -3px;
   width: 6px;
   height: 6px;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
+  background-color: var(--background1);
+  color: var(--boxColor);
+}
+
+.check_area dl dd .circle.red {
   background-color: #ff5757;
 }
+
 .check_area dl dd .circle.violet {
   background-color: #b22af8;
 }
+
 .check_area dl dd .circle.green {
   background-color: #02c73c;
 }
+
 .check_area dl dd .circle.blue {
   background-color: #2facea;
 }
@@ -157,6 +195,7 @@ dl {
   height: min-content;
   margin: 5px;
 }
+
 .check_area dl dd {
   position: relative;
   box-sizing: border-box;
@@ -165,87 +204,15 @@ dl {
   float: left;
   line-height: 2rem;
   color: #808080;
+  /* background-color: var(--background1); */
+  color: var(--boxColor);
   white-space: nowrap;
 }
 
 .check_area {
-  flex: 1;
+  /* flex: 1; */
   height: 50px;
-  border: solid 1px white;
-}
-
-button {
-  margin: 5px;
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-/* 모달 창 스타일 */
-.modal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.2); /* 배경에 어둡게 표시 */
-  overflow-y: hidden; /* 세로 스크롤을 숨김 */
-}
-
-/* 모달 내용 스타일 */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  height: 50%;
-  max-width: 400px;
-  position: relative;
-  overflow-y: hidden; /* 세로 스크롤을 숨김 */
-}
-
-/* 모달 닫기 버튼 스타일 */
-.close {
-  position: absolute;
-  right: 10px;
-  top: 5px;
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-ul {
-  list-style: none;
-}
-li {
-  width: 90%;
-  border-radius: 8px;
-  padding: 5px;
-}
-li:hover {
-  background-color: #e3e3e6;
-}
-
-em.red_text {
-  color: #ff5757;
-}
-em.violet_text {
-  color: #b22af8;
-}
-em.green_text {
-  color: #02c73c;
-}
-em.blue_text {
-  color: #2facea;
+  background-color: var(--background1);
+  color: var(--boxColor);
+  border: solid 1px var(--boxColor3);
 }
