@@ -287,3 +287,16 @@ li {
 li:hover {
   background-color: #e3e3e6;
 }
+
+em.red_text {
+  color: #ff5757;
+}
+em.violet_text {
+  color: #b22af8;
+}
+em.green_text {
+  color: #02c73c;
+}
+em.blue_text {
+  color: #2facea;
+}
