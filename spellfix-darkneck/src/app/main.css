@@ -42,6 +42,7 @@ main {
   display: flex;
   flex: 1;
   flex-direction: column;
+  overflow: hidden;
 }
 
 header {
@@ -62,9 +63,10 @@ header {
 }
 
 div.main {
-  display: flex;
+  /* display: flex; */
   flex: 1;
   flex-direction: column;
+  width: 100%;
 }
 
 section.main {
@@ -73,7 +75,8 @@ section.main {
 }
 
 div.section {
-  flex: 1;
+  /* flex: 1; */
+  /* overflow: auto; */
   border: 1px solid var(--boxColor);
   padding: 30px;
   margin: 5px;
@@ -81,7 +84,7 @@ div.section {
 }
 
 div.section.ggi {
-  min-height: 200px;
+  /* min-height: 200px; */
   display: flex;
   div {
     margin: 3px;
@@ -97,19 +100,26 @@ aside {
 
 aside.left {
   flex: 2;
+  /* height: 50%; */
   border-right: 1px solid var(--boxColor);
 }
 
 aside.right {
   flex: 1;
+  /* height: 50%; */
 }
 
 textarea {
   width: 100%;
-  height: 100%;
-  /* resize: none; */
+  /* height: 100%; */
+  resize: none;
   padding: 5px;
   margin: 0;
+}
+
+div.section.noun {
+  height: 83vh;
+  overflow: auto;
 }
 
 section {
@@ -120,7 +130,7 @@ section {
   div {
     border-radius: 15px;
     border: 1px solid #ccc;
-    height: 80%;
+    /* height: 100%; */
     background-color: var(--background1);
     color: var(--boxColor);
   }
@@ -140,15 +150,6 @@ button {
   margin: 12px auto;
   padding: 6px;
   border-radius: 10px;
-}
-
-#displayText {
-  min-height: 60%;
-  flex: 2;
-  &:hover {
-    cursor: pointer;
-    border: solid 3px #858585be !important;
-  }
 }
 
 .blind {
@@ -221,4 +222,68 @@ dl {
 #displayText {
   border: solid 1px var(--boxColor3);
   padding: 15px;
+}
+
+#displayText {
+  min-height: 200px;
+  flex: 2;
+  &:hover {
+    cursor: pointer;
+    border: solid 3px #858585be !important;
+  }
+}
+
+/* 모달 창 스타일 */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.2); /* 배경에 어둡게 표시 */
+  overflow-y: hidden; /* 세로 스크롤을 숨김 */
+}
+
+/* 모달 내용 스타일 */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  height: 50%;
+  max-width: 400px;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* 모달 닫기 버튼 스타일 */
+.close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+li {
+  width: 90%;
+  border-radius: 8px;
+  padding: 5px;
+}
+li:hover {
+  background-color: #e3e3e6;
 }

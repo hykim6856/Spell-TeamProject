@@ -21,7 +21,7 @@ const NounList = ({ text, setWord }) => {
   }, [text]);
 
   return (
-    <div className="section">
+    <div className="section noun">
       <h3>추천 단어</h3>
       <ul id="nounList" className="nounList">
         {nouns.map((noun, index) => (
